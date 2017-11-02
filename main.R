@@ -21,9 +21,11 @@ weights = trainer(trainingData)
 output <- data.frame(PassengerId = integer(), Survived = integer())
 
 # Construct the output data:
-
 for (x in 1:(nrow(novelData))) {
-	output <- rbind(output, c(1,1))
+	output <- rbind(output, c(
+    novelData[x,"PassengerId"],
+    classifier(novelData[x,])
+  ))
 }
 
 
